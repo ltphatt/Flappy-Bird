@@ -47,4 +47,9 @@ public class Score : MonoBehaviour
     {
         return score;
     }
+
+    public int GetHighScore()
+    {
+        return PlayerPrefs.GetInt("HighScore");
+    }
 }

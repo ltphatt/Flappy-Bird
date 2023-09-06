@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    [SerializeField] private GameObject scoreCanvas;
     [SerializeField] private GameObject gameOverCanvas;
     [SerializeField] private GameObject startGameCanvas;
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameOverCanvas.SetActive(true);
+        scoreCanvas.SetActive(false);
         Time.timeScale = 0f;
     }
 
