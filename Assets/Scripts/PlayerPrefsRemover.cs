@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
@@ -8,6 +10,5 @@ public class PlayerPrefsRemover : MonoBehaviour
     public static void DeletePlayerPrefs()
     {
         PlayerPrefs.DeleteAll();
-        Debug.Log("Deleting player prefs...");
     }
 }
