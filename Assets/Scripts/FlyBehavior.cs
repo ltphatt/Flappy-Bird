@@ -9,7 +9,6 @@ public class FlyBehavior : MonoBehaviour
     [SerializeField] float rotationSpeed = 10f;
     private Rigidbody2D rb;
     AudioPlayer audioPlayer;
-
     bool isAlive = true;
 
     private void Awake()
@@ -46,5 +45,10 @@ public class FlyBehavior : MonoBehaviour
         GameManager.instance.GameOver();
         isAlive = false;
         audioPlayer.PlayHitClip();
+    }
+
+    public bool PlayerIsAlive()
+    {
+        return isAlive;
     }
 }
