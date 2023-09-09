@@ -10,6 +10,8 @@ public class FlyBehavior : MonoBehaviour
     private Rigidbody2D rb;
     AudioPlayer audioPlayer;
 
+    bool isAlive = true;
+
     private void Awake()
     {
         audioPlayer = FindObjectOfType<AudioPlayer>();
@@ -22,6 +24,11 @@ public class FlyBehavior : MonoBehaviour
 
     private void Update()
     {
+        if (!isAlive)
+        {
+            return;
+        }
+
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             rb.velocity = Vector2.up * velocity;
@@ -37,6 +44,7 @@ public class FlyBehavior : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GameManager.instance.GameOver();
+        isAlive = false;
         audioPlayer.PlayHitClip();
     }
 }
